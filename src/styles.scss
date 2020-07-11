@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Raleway, "Helvetica Neue", sans-serif !important;
+  background-color: #171717;
+}
+
+
+mat-label {
+  color: white;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white;
+}
+
+h6 {
+  font-weight: 400;
+  margin:8px 0;
+}

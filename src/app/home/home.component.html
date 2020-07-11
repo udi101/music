@@ -6,7 +6,8 @@
     <div class="header__content__title">We want your<br>inspiring music</div>
     <div class="header__content__subtext">Get your music into films, videos & TV all<br>around the world. Join the
       Artlist family.
-      <div class="header__content__arrow"><img src="assets/images/Scroll_Down.svg" alt="" (click)="scroll(footer)"></div>
+      <div class="header__content__arrow"><img src="assets/images/Scroll_Down.svg" alt="" (click)="scroll(footer)">
+      </div>
     </div>
   </div>
 </header>
@@ -62,7 +63,7 @@
       </ul>
     </div>
     <div class="check__content__button">
-      <button>Start Free Now</button>
+      <button [routerLink]="['register']">Start Free Now</button>
     </div>
   </div>
 </div>

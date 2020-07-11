@@ -1,0 +1,74 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+
+
+$my-white: (50: #ffffff,
+  100: #ffffff,
+  200: #ffffff,
+  300: #ffffff,
+  400: #ffffff,
+  500: #ffffff,
+  600: #ffffff,
+  700: #ffffff,
+  800: #ffffff,
+  900: #ffffff,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: white,
+    500: white,
+    600: $white-87-opacity,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: white,
+    A700: $white-87-opacity,
+  ));
+
+$my-app-primary: mat-palette($my-white);
+$my-app-accent: mat-palette($mat-pink, 500, 900, A100);
+$my-app-warn: mat-palette($mat-deep-orange);
+
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);
+
+
+
+
+.mat-select-value {
+  color: #fff;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.mat-select-arrow {
+  color: white;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle,
+.mat-radio-outer-circle {
+  border-color: white !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: white;
+}
+
+.mat-checkbox-frame {
+  border-color: white;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #404040;
+  // border:2px solid white;
+}

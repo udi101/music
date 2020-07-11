@@ -4,7 +4,6 @@
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
-  font-family: Raleway, sans-serif;
 
   &__content {
     position: absolute;
@@ -49,7 +48,6 @@
     margin: 0 auto;
 
     h2 {
-      font-family: raleway;
       font-weight: 700;
       text-align: center;
       font-size: calc(20px + (3000vw - 9600px)/1600);
@@ -78,7 +76,6 @@
 
 
     &__title {
-      font-family: Raleway, sans-serif;
       font-weight: 700;
       margin-bottom: 60px;
       font-size: calc(23px + (3700vw - 11840px)/1600);
@@ -93,7 +90,6 @@
 }
 
 .check {
-  font-family: Raleway, sans-serif;
   background-image: url('/assets/backgrounds/17eb6f570029ff7241aaac10e4d628a25fe936bb.png');
 
   &__content {
@@ -135,7 +131,6 @@
         border-radius: 60px;
         cursor: pointer;
         width: 170px;
-        font-family: Raleway, sans-serif;
         -webkit-transition: all .15s ease;
         transition: all .15s ease;
         outline: 0;
@@ -192,11 +187,3 @@ footer {
   left: 38px;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track-piece {
-  background-color: #eee;
-}

@@ -1,0 +1,120 @@
+:host {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20vw;
+
+  @media screen and (max-width:768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  &__pro {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+.music {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+
+  &__title {
+    font-size: 16px;
+    margin: 60px 0 10px 0;
+
+    &__upload {
+      font-size: 20px;
+      font-weight: 700;
+      margin-right: 20px;
+
+      label {
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__upload {
+    width: 400px;
+    height: 200px;
+    border-radius: 6px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 50px;
+
+    label {
+      font-size: 16px;
+
+      .yellow {
+        font-weight: 700;
+        color: #ffd000;
+      }
+    }
+
+    input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+
+  &__declerations {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+
+.submit {
+  display: flex;
+  justify-content: center;
+
+  button {
+    border-radius: 50px;
+    background-color: #ffd000;
+    font-size: 20px;
+    padding: 12px 39px;
+    outline: none;
+    margin-top: 40px;
+  }
+}
+
+// Mobile view
+@media screen and (max-width:768px) {
+  .about {
+    width: 300px;
+  }
+
+  .music {
+    width: 300px;
+  }
+}
