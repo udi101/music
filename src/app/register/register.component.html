@@ -1,20 +1,23 @@
-<form action="" [formGroup]="frmRegister">
+<form (ngSubmit)="register()" [formGroup]="frmRegister">
   <section class="about">
     <div class="about__title">Submit your music</div>
 
     <mat-form-field appearance="outline">
       <mat-label>Full Name</mat-label>
-      <input matInput color="primary" type="text">
+      <mat-error>Full name is required</mat-error>
+
+      <input matInput color="primary" type="text" formControlName="fullName">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" formControlName="email">
+    <mat-form-field appearance="outline">
       <mat-label>E-mail</mat-label>
-      <input matInput color="primary" type="text">
+      <mat-error>Email is required and must be valid</mat-error>
+      <input matInput color="primary" type="email" formControlName="email">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Country</mat-label>
-      <mat-select>
+      <mat-select formControlName="country">
         <mat-option [value]="'Canada'">Canadada</mat-option>
         <mat-option [value]="'Iran'">Iran</mat-option>
         <mat-option [value]="'Israel'">Israel</mat-option>
@@ -23,22 +26,23 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Bio</mat-label>
-      <textarea matInput color="primary" type="text" rows="3"></textarea>
+      <textarea matInput color="primary" type="text" rows="3" formControlName="bio"></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>What do you do?</mat-label>
-      <input matInput color="primary" type="text" autocomplete="off">
+      <input matInput color="primary" type="text" autocomplete="off" formControlName="occupation">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Portfolio links</mat-label>
-      <input matInput color="primary" type="text" autocomplete="off">
+      <mat-error>Not a valid url</mat-error>
+      <input matInput color="primary" type="text" autocomplete="off" formControlName="portfolio" url>
     </mat-form-field>
 
     <div class="about__pro">
       <span> Are you registered with a pro?</span>
-      <mat-radio-group aria-label="Select an option">
+      <mat-radio-group aria-label="Select an option" formControlName="isProfessional">
         <mat-radio-button value="true" style="margin-right: 10px;">Yes</mat-radio-button>
         <mat-radio-button value="false">No</mat-radio-button>
       </mat-radio-group>
@@ -53,19 +57,22 @@
       <label class="music__upload__label" for="upload"><span class="yellow">Click to upload</span> or drag and drop
         here</label>
       <h6>MP3/WAV format</h6>
-      <input type="file" accept="audio/mp3,audio/*;capture=microphone">
+      <input type="file" accept="audio/mp3,audio/*;capture=microphone" formControlName="musicFile" (input)="addMusicFile($event.target.value)">
     </div>
 
     <div class="music__declerations">
-      <mat-checkbox>I have full rights for the music.</mat-checkbox>
-      <mat-checkbox>None of the songs are a cover of another artis's material.</mat-checkbox>
-      <mat-checkbox>The music is clear for use in any web platform, including YouTube monetization.</mat-checkbox>
+      <mat-checkbox formControlName="fullRights">I have full rights for the music.</mat-checkbox>
+      <mat-checkbox formControlName="isGenuine">None of the songs are a cover of another artis's material.</mat-checkbox>
+      <mat-checkbox formControlName="allPlatforms">The music is clear for use in any web platform, including YouTube monetization.</mat-checkbox>
     </div>
 
     <section class="submit">
-      <button type="submit" class="submit"> Submit</button>
+      <button type="submit" class="submit">Submit</button>
     </section>
 
 
   </section>
 </form>
+
+
+<!-- {{frmRegister.value | json}} -->

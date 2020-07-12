@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+
+
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
+
+
 @Component({
   selector: 'register',
   templateUrl: './register.component.html',
@@ -8,7 +13,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   frmRegister: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  formData = new FormData();
+
+  constructor(
+    private fb: FormBuilder,
+    private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -18,12 +27,31 @@ export class RegisterComponent implements OnInit {
 
   buildForm() {
     this.frmRegister = this.fb.group({
-      fullName: '',
-      email: '',
+      fullName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       country: '',
       bio: '',
       occupation: '',
-      portfolio: ''
+      portfolio: [''],      // There is a custom url validator using the url directive that injects NG_VALIDATORS
+      isProfessional: false,
+      fullRights: false,
+      isGenuine: false,
+      allPlatforms: false,
+      musicFile: null
     });
   }
+
+  register() {
+    console.log(this.frmRegister.value);
+    this.localStorage.setItem('registration', this.frmRegister.value);
+    this.formData.append('frmData', JSON.stringify(this.frmRegister.value));
+  }
+
+
+  addMusicFile(e: Blob) {
+    this.formData.append('musicSample', e);
+    console.log(e);
+  }
+
+
 }
